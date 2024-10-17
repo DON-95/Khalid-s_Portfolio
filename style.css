@@ -434,11 +434,15 @@ footer ul li a {
     }
 
     header .visit-btn {
-        /* display: none; */
+        margin-top: 12px;
     }
 
     .about-container {
         flex-direction: column;
+    }
+
+    .projects-card .btn{
+        padding: 1rem;
     }
 
     .input-box input {
@@ -499,6 +503,10 @@ footer ul li a {
 
     header .logo {
         font-size: 1.5rem;
+    }
+
+    .projects-card .btn{
+        padding: 0.5rem;
     }
 
     .about-container img {
