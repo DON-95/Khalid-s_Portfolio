@@ -1,0 +1,66 @@
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+}
+
+.dark-mode .header {
+    background-color: #1a1a1a
+}
+
+.dark-mode a {
+    color: #f2f2f2;
+    background-color: transparent;
+}
+
+.dark-mode .btn{
+    border: 2px solid #f2f2f2;
+}
+
+.dark-mode .btn:hover{
+    background-color: #f2f2f2;
+    color: #1e1e1e;
+    transform: scale(1.05);
+}
+
+.dark-mode .linkk{
+        color: inherit;
+        text-decoration: none;
+}
+
+.dark-mode .social a i{
+    color: #f2f2f2;
+}
+
+.dark-mode .grid-card, .dark-mode .projects-card {
+    background-color: #1e1e1e;
+    color: #f2f2f2;
+    border: 2px solid #f2f2f2;
+}
+
+.dark-mode .grid-card:hover, .dark-mode .projects-card:hover{
+    background-color: #f2f2f2;
+    color: #1a1a1a;
+    border: none;
+}    
+
+.dark-mode .projects-card:hover .btn{
+    border-color: #1a1a1a;
+    color: #1a1a1a;
+}
+
+.dark-mode .projects-card:hover .btn:hover{
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+}
+
+.dark-mode input{
+    background: #1a1a1a;
+    border: 2px solid #f2f2f2;
+    border-radius: 3rem;
+    color: #f2f2f2;
+}
+
+.dark-mode footer {
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+}
