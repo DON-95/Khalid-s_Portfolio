@@ -10,6 +10,10 @@
     list-style: none;
 }
 
+body {
+    transition: background-color 0.2s ease-in-out, color 0.01s ease;
+}
+
 /* Header n Nav */
 
 .header {
@@ -26,6 +30,7 @@
     padding: 0.5rem 1.5rem;
     border-radius: 3rem;
     z-index: 1000;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .logo {
@@ -70,6 +75,18 @@ li a:hover::before {
     width: 100%;
 }
 
+@property --myColor1 {
+    syntax: '<color>';
+    initial-value: rgb(0, 157, 255);
+    inherits: false;
+  }
+  
+  @property --myColor2 {
+    syntax: '<color>';
+    initial-value: rgb(255, 0, 255);
+    inherits: false;
+  }
+
 .visit-btn {
     padding: 0.8rem 1.5rem;
     border-radius: 3rem;
@@ -80,18 +97,23 @@ li a:hover::before {
     cursor: pointer;
     text-wrap: nowrap;
     transition: 0.3s ease-in-out;
-    background: linear-gradient(to right, rgb(0, 157, 255), rgb(255, 0, 255));
+    background: linear-gradient(to right, var(--myColor1), var(--myColor2));
+    transition: --myColor1 0.6s, --myColor2 0.6s;
+
 }
 
 .visit-btn:hover {
     transform: scale(1.03);
-    background: linear-gradient(to right, rgb(255, 0, 255), rgb(0, 157, 255));
+    --myColor1: rgb(255, 0, 255);
+    --myColor2: rgb(0, 157, 255);
 }
 
 #menu-btn {
     font-size: 2rem;
     display: none;
 }
+
+
 
 /* Main */
 
@@ -261,7 +283,6 @@ section {
     color: transparent;
 }
 
-
 ::-webkit-scrollbar {
     width: 15px;
 }
@@ -393,6 +414,73 @@ footer ul li a {
     margin-top: 2rem;
 }
 
+/* Dakr mode toggle */
+
+.toggle-container {
+    position: fixed;
+    top: 1rem; 
+    right: 1rem; 
+    z-index: 1000; 
+    display: flex;
+    align-items: center;
+}
+
+.toggle-checkbox {
+    display: none; 
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: #ddd;
+    border-radius: 50px; 
+    padding: 5px; 
+    transition: background-color 0.3s ease;
+}
+
+.toggle-inner {
+    display: flex;
+    justify-content: space-between;
+    width: 50px; 
+}
+
+.toggle-switch {
+    width: 20px;
+    height: 20px;
+    background: white; 
+    border-radius: 50%; 
+    transition: transform 0.3s ease; 
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: grey; 
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-switch {
+    transform: translateX(-40px);
+}
+
+.sun-icon,
+.moon-icon {
+    font-size: 1.5rem; 
+    display: none; 
+}
+
+.toggle-checkbox:checked + .toggle-label .sun-icon {
+    display: none; 
+}
+
+.toggle-checkbox:checked + .toggle-label .moon-icon {
+    display: inline; 
+    transform: translateX(30px);
+}
+
+.toggle-label .sun-icon {
+    display: inline; 
+}
+
+
 /* responsiveness */
 
 @media(max-width:1280px) {
@@ -430,11 +518,7 @@ footer ul li a {
     }
 
     header .logo {
-        font-size: 1rem;
-    }
-
-    header .visit-btn {
-        margin-top: 12px;
+        font-size: 1.2rem;
     }
 
     .about-container {
@@ -465,6 +549,31 @@ footer ul li a {
     .expirence-info img {
         width: 70vw;
     }
+
+    .toggle-container {
+        position: fixed;
+        top: 0.5rem; 
+        right: 0.5rem; 
+        z-index: 1000; 
+    }
+    .toggle-label{
+        width: 30px;
+        height: 30px;
+    }
+
+    .sun-icon,
+    .moon-icon {
+    font-size: 1rem; 
+    }
+    
+    .toggle-checkbox:checked + .toggle-label .moon-icon {
+        transform: translateX(0px);
+    }
+
+    .toggle-switch{
+        display: none;
+    }
+    
 }
 
 @media(max-width:800px) {
@@ -482,7 +591,7 @@ footer ul li a {
         display: flex;
         flex-direction: column;
         text-align: center;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.5);
         border-radius: 3rem;
         display: none;
     }
@@ -505,25 +614,32 @@ footer ul li a {
         font-size: 1.5rem;
     }
 
-    .projects-card .btn{
-        padding: 0.5rem;
+    header .visit-btn{
+        margin-top: 12px;
     }
 
     .about-container img {
         width: 80vw;
     }
 
+    .projects-card .btn{
+        padding: 0.5rem;
+    }
+
     .input-box input {
-        padding: 0.5rem 3rem;
+        padding: 2rem;
         width: 80%;
         font-size: 1.5rem;
     }
 
     .input-box input::placeholder {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     footer ul {
         gap: 1rem;
     }
 }
+
+
+
